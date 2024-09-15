@@ -4,31 +4,32 @@ Created on Sat Sep 14 02:29:13 2024
 
 @author: trankieuvy
 """
-chuoi=input("Nhập vào chuỗi: ")
-dodai=len(chuoi)
-print("Độ dài chuỗi là: ",dodai)
+chuoi = input("Nhập một chuỗi: ")
 
-kytudacbiet="!@#$%^&*()-=+./"
+length = len(chuoi)
+print("Độ dài chuỗi: ", length)
 
-demkytudacbiet=0
-demchucaithuong=0
-demchuso=0
-demchucaihoa=0
+kydb = "!@#$%^&*()-=+./"
+dem_kydb = 0
+for char in chuoi:
+    if char in kydb:
+        dem_kydb += 1
+print("Số ký tự đặc biệt: ", dem_kydb)
 
-for i in chuoi:
-    if i in kytudacbiet:
-        demkytudacbiet+=1
-    elif i.islower():
-        demchucaithuong+=1
-    elif i.isdigit():
-        demchuso+=1
-    elif i.isupper():
-        demchucaihoa+=1
-print("Số ký tự đặc biệt là: ",demkytudacbiet)
-print("Số ký tự chữ thường là:",demchucaithuong)
-print("Số ký tự chữ số là:",demchuso)
-print("Số ký tự chữ in hoa là:",demchucaihoa)
+dem_thuong = 0
+for char in chuoi:
+    if char.islower():
+        dem_thuong += 1
+print("Số ký tự chữ cái thường [a-z]: ", dem_thuong)
 
+dem_so = 0
+for char in chuoi:
+    if char.isdigit():
+        dem_so += 1
+print("Số ký tự chữ số [0-9]: ", dem_so)
 
-        
-        
+dem_hoa = 0
+for char in chuoi:
+    if char.isupper():
+        dem_hoa += 1
+print("Số ký tự chữ cái hoa [A-Z]: ", dem_hoa)
