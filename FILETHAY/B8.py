@@ -2,7 +2,7 @@
 """
 Created on Sat Sep 14 23:48:44 2024
 
-@author: Admin
+@author: trankieuvy
 """
 import random
 n = int(input("Nhập số lượng số ngẫu nhiên n: "))
