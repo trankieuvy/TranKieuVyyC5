@@ -11,14 +11,27 @@ sove = int(input("Nhập số vé bạn muốn mua: "))
 tongtienthang = 0
 giave = 10000
 
-sotrungthuong = random.sample(range(1, 46), 6)
-print("Dãy số trúng thưởng: ",sotrungthuong)
+sotrungthuong = []
+while len(sotrungthuong) < 6:
+    so = random.randint(1, 45)
+    if so not in sotrungthuong:
+        sotrungthuong.append(so)
+sotrungthuong.sort()
+print("Dãy số trúng thưởng: ", sotrungthuong)
 
 for i in range(sove):
-    ve = random.sample(range(1, 46), 6)
-    sotrung = len(set(ve) & set(sotrungthuong))  
+    ve = []
+    while len(ve) < 6:
+        so = random.randint(1, 45)
+        if so not in ve:
+            ve.append(so)
+    ve.sort()
+    
+    sotrung = 0
+    for num in ve:
+        if num in sotrungthuong:
+            sotrung += 1
 
-# Tính số tiền thưởng
     if sotrung == 6:
         tongtienthang += 10000000000
     elif sotrung == 5:
@@ -28,10 +41,13 @@ for i in range(sove):
     elif sotrung == 3:
         tongtienthang += 30000
 
-    print(f"Vé {i + 1}: {ve} - Trùng {sotrung} số, Thưởng: {tongtienthang:,} vnđ")
-
+    print("Vé", i + 1, ":", ve, "- Trùng", sotrung, "số, Thưởng:", "{:,}".format(tongtienthang), "vnđ")
 
 tongchiphi = sove * giave
-print(f"Tổng tiền trúng: {tongtienthang:,} vnđ")
-print(f"Tổng chi phí: {tongchiphi:,} vnđ")
-print(f"Lợi nhuận: {tongtienthang - tongchiphi:,} vnđ")
+print("Tổng tiền trúng:", "{:,}".format(tongtienthang), "vnđ")
+print("Tổng chi phí:", "{:,}".format(tongchiphi), "vnđ")
+print("Lợi nhuận:", "{:,}".format(tongtienthang - tongchiphi), "vnđ")
+
+ 
+
+
