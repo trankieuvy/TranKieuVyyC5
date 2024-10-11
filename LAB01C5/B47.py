@@ -2,24 +2,21 @@
 """
 Created on Sat Sep 14 21:02:02 2024
 
-@author: Admin
+@author: TranKieuVy
 """
 
-tonglonnhat= 0
-bonghiem = 0
+#BÀI 47
 
-for z in range(1, 979 // 9 + 1):
-    for y in range(1, (979 - 9 * z) // 7 + 1):
-       conlai = 979 - 9 * z - 7 * y
-       if conlai > 0 and conlai % 2 == 0:
-            x = conlai // 2
-            tong = x + y + z
-            if tong > tonglonnhat:
-                tonglonnhat = tong
-                bonghiem = (x, y, z)
+danhsach=[]
+max=0
 
-if bonghiem:
-    print(f"Bộ nghiệm có tổng x + y + z lớn nhất là: x = {bonghiem[0]}, y = {bonghiem[1]}, z = {bonghiem[2]}")
-else:
-    print("Không có bộ nghiệm nào thỏa mãn.")
-    
+for x in range (1,490):
+    for y in range (1,140):
+        for z in range (1,109):
+            if 2*x + 7*y + 9*z == 979:
+                sum = x+y+z
+                if sum > max:
+                    max = sum
+                    danhsach=[(x,y,z)]
+            
+print(f"{danhsach} với bộ nghiệm (x+y+z)={max}")
