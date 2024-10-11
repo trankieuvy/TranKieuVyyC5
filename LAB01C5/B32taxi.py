@@ -4,17 +4,18 @@ Created on Sat Sep 14 02:11:15 2024
 
 @author: trankieuvy
 """
-sokm=int(input("Nhập số km đã đi được: "))
-sotien=0
-for i in range(1,sokm+1):
-    if i==1:
-        sotien+=15000
-    elif 2<=i<=5:
-        sotien+=13500
-    else:
-        sotien+=11000
-if i>120:
-    sotien*=0.9
-print("Số km đã đi là ",sokm,"km và số tiền cần phải thanh toán là",sotien,"VND")
+#TAXI 
+sokm=int(input("Nhập vào số km đã đi được: "))
+tong=0
+if sokm==1:
+    tong=sokm*15000
+elif 2 <= sokm <= 5:
+    tong = 15000 + (sokm - 1) * 13500
+elif sokm >= 6:
+    tong= 15000 + (sokm - 4) * 13500 + (sokm-5) * 11000
+elif sokm > 120:
+    tong= (15000 + (sokm - 4) * 13500 + ((sokm-5) * 11000))* 0.9
+print("số km đã đi là:", sokm,"và số tiền phải trả là: ",tong)
+    
 
         
